@@ -24,6 +24,7 @@
 (async () => {
 
   // ── 1. Load fonts ────────────────────────────────────────────────────────
+  await figma.loadFontAsync({ family: "Inter", style: "Regular" }); // default text node font
   await figma.loadFontAsync({ family: "Inter", style: "Medium" });
 
 
