@@ -1,0 +1,200 @@
+/**
+ * Design Tokens — Generated from _Core.json and Semantic.json
+ *
+ * _Core    : Primitive color palette, fonts (source of truth)
+ * Semantic : Contextual aliases for UI components (Light mode)
+ *
+ * Usage:
+ *   color: var(--foreground-default);
+ *   background-color: var(--background-interactive);
+ *   border-color: var(--border-accent);
+ *   gap: var(--spacings-base-4);           /* 16px */
+ *   border-radius: var(--radius-md);       /* 4px  */
+ *   font-family: var(--typography-fontfamily1);
+ */
+
+:root {
+
+  /* ======================================================= */
+  /* Core Tokens — Primitive palette (_Core)                 */
+  /* These are raw values; prefer semantic tokens in UI code  */
+  /* ======================================================= */
+
+  /* Black Ocean — deep navy/cyan scale (100 = darkest) */
+  --black-ocean-100: #000001;
+  --black-ocean-90:  #00010e;
+  --black-ocean-80:  #000e27;
+  --black-ocean-70:  #00264b;
+  --black-ocean-60:  #00467b;
+  --black-ocean-50:  #00528c;
+  --black-ocean-40:  #0069af;
+  --black-ocean-30:  #008ee1;
+  --black-ocean-20:  #00aaff;
+  --black-ocean-10:  #87d3ff;
+
+  /* Carbon Fiber — neutral gray scale (100 = darkest, 00 = white) */
+  --carbon-fiber-100: #020202;
+  --carbon-fiber-90:  #0d0d0d;
+  --carbon-fiber-80:  #262626;
+  --carbon-fiber-70:  #424242;
+  --carbon-fiber-60:  #4d4d4d;
+  --carbon-fiber-50:  #636363;
+  --carbon-fiber-40:  #868686;
+  --carbon-fiber-30:  #cacaca;
+  --carbon-fiber-20:  #e1e1e1;
+  --carbon-fiber-10:  #f8f8f8;
+  --carbon-fiber-00:  #ffffff;
+
+  /* Red — error/danger (90 = darkest) */
+  --red-90: #991b1b;
+  --red-80: #b91c1c;
+  --red-70: #dc2626;
+  --red-60: #ef4444;
+  --red-50: #f87171;
+  --red-40: #fca5a5;
+  --red-30: #fecaca;
+  --red-20: #fee2e2;
+  --red-10: #fef2f2;
+
+  /* Orange — warning (90 = darkest) */
+  --orange-90: #92400e;
+  --orange-80: #b45309;
+  --orange-70: #d97706;
+  --orange-60: #f59e0b;
+  --orange-50: #fbbf24;
+  --orange-40: #fcd34d;
+  --orange-30: #fde68a;
+  --orange-20: #fef3c7;
+  --orange-10: #fffbeb;
+
+  /* Green — success (90 = darkest) */
+  --green-90: #166534;
+  --green-80: #15803d;
+  --green-70: #16a34a;
+  --green-60: #22c55e;
+  --green-50: #4ade80;
+  --green-40: #86efac;
+  --green-30: #bbf7d0;
+  --green-20: #dcfce7;
+  --green-10: #f0fdf4;
+
+  /* Blue — info (90 = darkest) */
+  --blue-90: #1e3a8a;
+  --blue-80: #1e40af;
+  --blue-70: #2563eb;
+  --blue-60: #3b82f6;
+  --blue-50: #60a5fa;
+  --blue-40: #93c5fd;
+  --blue-30: #bfdbfe;
+  --blue-20: #dbeafe;
+  --blue-10: #eff6ff;
+
+  /* Transparent overlays */
+  --clear-transparent:        rgba(248, 248, 248, 0);
+  --clear-transparent-subtle: rgba(248, 248, 248, 0.04);
+
+  /* Fonts */
+  --fonts-font1: "Space Grotesk";
+  --fonts-font2: "Inter";
+
+
+  /* ======================================================= */
+  /* Semantic Tokens — Contextual aliases (Light mode)        */
+  /* Use these in component and layout code                   */
+  /* ======================================================= */
+
+  /* Brand */
+  --brand-primary:   var(--black-ocean-20);   /* #00aaff — primary CTA blue  */
+  --brand-secondary: var(--carbon-fiber-80);  /* #262626 — dark neutral      */
+
+  /* Backgrounds */
+  --background-default:                   var(--carbon-fiber-10);        /* page bg          */
+  --background-default-alt:              var(--carbon-fiber-30);        /* alt surface      */
+  --background-subtle:                   var(--carbon-fiber-00);        /* elevated/card bg */
+  --background-accent:                   var(--carbon-fiber-80);        /* accent surface   */
+  --background-interactive:              var(--black-ocean-20);         /* primary button   */
+  --background-interactive-hover:        var(--black-ocean-40);
+  --background-interactive-active:       var(--black-ocean-50);
+  --background-interactive-disabled:     var(--carbon-fiber-40);
+  --background-interactive-invert:       var(--clear-transparent-subtle);
+  --background-interactive-invert-hover: var(--carbon-fiber-20);
+  --background-interactive-invert-active:var(--carbon-fiber-30);
+  --background-secondary-disabled:       var(--carbon-fiber-40);
+  --background-fade:                     var(--clear-transparent-subtle);
+  --background-fade-hover:               var(--clear-transparent);
+  --background-error:                    var(--red-30);
+  --background-warning:                  var(--orange-30);
+  --background-success:                  var(--green-30);
+  --background-info:                     var(--blue-30);
+
+  /* Foregrounds / Text */
+  --foreground-default:                    var(--carbon-fiber-80);   /* body text         */
+  --foreground-default-invert:             var(--carbon-fiber-10);   /* on dark surface   */
+  --foreground-subtle:                     var(--carbon-fiber-00);   /* NOTE: white — see review notes */
+  --foreground-disabled:                   var(--carbon-fiber-20);
+  --foreground-accent:                     var(--black-ocean-20);
+  --foreground-interactive:               var(--carbon-fiber-10);   /* text on primary button  */
+  --foreground-interactive-hover:         var(--carbon-fiber-10);
+  --foreground-interactive-active:        var(--carbon-fiber-10);
+  --foreground-interactive-disabled:      var(--carbon-fiber-20);
+  --foreground-interactive-invert:        var(--carbon-fiber-80);
+  --foreground-interactive-invert-hover:  var(--carbon-fiber-80);
+  --foreground-interactive-invert-active: var(--carbon-fiber-80);
+  --foreground-interactive-invert-disabled: var(--carbon-fiber-20);
+  --foreground-error:                      var(--red-90);
+  --foreground-warning:                    var(--orange-90);
+  --foreground-success:                    var(--green-90);
+  --foreground-info:                       var(--blue-90);
+
+  /* Borders */
+  --border-default:                   var(--carbon-fiber-20);
+  --border-subtle:                    var(--carbon-fiber-20);
+  --border-accent:                    var(--black-ocean-20);
+  --border-secondary-disabled:        var(--carbon-fiber-40);
+  --border-interactive-invert:        var(--carbon-fiber-80);
+  --border-interactive-invert-hover:  var(--carbon-fiber-80);
+  --border-interactive-invert-active: var(--carbon-fiber-80);
+  --border-error:                     var(--red-70);
+  --border-warning:                   var(--orange-70);
+  --border-success:                   var(--green-70);
+  --border-info:                      var(--blue-70);
+
+  /* Typography */
+  --typography-fontfamily1: var(--fonts-font1);   /* "Space Grotesk" — headings */
+  --typography-fontfamily2: var(--fonts-font2);   /* "Inter" — body             */
+
+  /* Spacings — 4px grid (base-0 = 2px exception for fine-grained use) */
+  --spacings-base-0:  2px;
+  --spacings-base-1:  4px;
+  --spacings-base-2:  8px;
+  --spacings-base-3:  12px;
+  --spacings-base-4:  16px;
+  --spacings-base-5:  20px;
+  --spacings-base-6:  24px;
+  --spacings-base-7:  28px;
+  --spacings-base-8:  32px;
+  --spacings-base-9:  36px;
+  --spacings-base-10: 40px;
+  --spacings-base-11: 44px;
+  --spacings-base-12: 48px;
+  --spacings-base-13: 52px;
+  --spacings-base-14: 56px;
+  --spacings-base-15: 60px;
+  --spacings-base-16: 64px;
+  --spacings-base-17: 68px;
+  --spacings-base-18: 72px;
+  --spacings-base-19: 76px;
+  --spacings-base-20: 80px;
+  --spacings-base-21: 84px;
+  --spacings-base-22: 88px;
+  --spacings-base-23: 92px;
+  --spacings-base-24: 96px;
+
+  /* Border Radius */
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+}
