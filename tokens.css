@@ -198,3 +198,56 @@
   --radius-full: 9999px;
 
 }
+
+
+/* ======================================================= */
+/* Text Styles — Generated from Figma Text Styles          */
+/* Requires: Space Grotesk, Inter, Fragment Mono            */
+/* ======================================================= */
+
+@import "tailwindcss";
+
+@theme {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-fragment-mono: "Fragment Mono", sans-serif;
+}
+
+@layer utilities {
+  .font-heading-1 {
+    @apply font-space-grotesk text-6xl font-medium leading-tight;
+  }
+  .font-heading-2 {
+    @apply font-space-grotesk text-5xl font-medium leading-tight;
+  }
+  .font-heading-3 {
+    @apply font-space-grotesk text-4xl font-medium leading-tight;
+  }
+  .font-heading-4 {
+    @apply font-space-grotesk text-3xl font-bold leading-10;
+  }
+  .font-heading-5 {
+    @apply font-space-grotesk text-2xl font-bold leading-8;
+  }
+  .font-heading-6 {
+    @apply font-space-grotesk text-xl font-bold leading-7;
+  }
+  .font-subtitle {
+    @apply font-inter text-xl font-medium leading-7;
+  }
+  .font-body-1 {
+    @apply font-inter text-lg font-normal leading-7;
+  }
+  .font-body-2 {
+    @apply font-inter text-base font-normal leading-6;
+  }
+  .font-caption-1 {
+    @apply font-inter text-sm font-medium leading-5;
+  }
+  .font-caption-2 {
+    @apply font-inter text-xs font-semibold leading-4;
+  }
+  .font-code {
+    @apply font-fragment-mono text-base font-normal leading-6;
+  }
+}
