@@ -75,12 +75,18 @@
     try { node.setBoundVariable(field, v); } catch (_) {}
   }
   function focusRing() {
+    const brand = getV("brand/primary");
+    const outerColor = { r: 0, g: 0.67, b: 1, a: 1 }; // #00aaff fallback
+    const outer = brand
+      ? { type: "DROP_SHADOW", color: outerColor,
+          boundVariables: { color: figma.variables.createVariableAlias(brand) },
+          offset: { x: 0, y: 0 }, radius: 0, spread: 4, visible: true, blendMode: "NORMAL" }
+      : { type: "DROP_SHADOW", color: outerColor,
+          offset: { x: 0, y: 0 }, radius: 0, spread: 4, visible: true, blendMode: "NORMAL" };
     return [
       { type: "DROP_SHADOW", color: { r: 1, g: 1, b: 1, a: 1 },
         offset: { x: 0, y: 0 }, radius: 0, spread: 2, visible: true, blendMode: "NORMAL" },
-      { type: "DROP_SHADOW", color: { r: 0, g: 0, b: 0, a: 1 },
-        boundVariables: { color: figma.variables.createVariableAlias(getV("brand/primary")) },
-        offset: { x: 0, y: 0 }, radius: 0, spread: 4, visible: true, blendMode: "NORMAL" },
+      outer,
     ];
   }
   function txt(chars, opts = {}) {
