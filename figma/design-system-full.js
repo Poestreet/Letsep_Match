@@ -182,6 +182,7 @@
       c.effects = tk.ring ? focusRing() : [];
       const lbl = txt("Button", { size: s.fs, lh: s.lh, style: s.style, fill: tk.fg });
       c.appendChild(lbl);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -226,6 +227,7 @@
       if (tk.bd) stroke1(c, tk.bd);
       const ico = txt("◉", { size: Math.round(s.sz * 0.45), fill: tk.fg });
       c.appendChild(ico);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -277,6 +279,7 @@
       c.appendChild(ico);
       c.appendChild(lbl);
       lbl.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -300,6 +303,7 @@
       sp(c, "itemSpacing", "spacings/base-1");
       c.appendChild(txt("Link text", { size: 14, style: "Medium", fill: fg }));
       if (external === "True") c.appendChild(txt("↗", { size: 12, fill: fg }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -344,6 +348,7 @@
       content.appendChild(title); content.appendChild(msg);
       c.appendChild(ico); c.appendChild(content);
       content.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -392,6 +397,7 @@
         ftr.appendChild(txt("Footer content", { size: 14, fill: "foreground/subtle" }));
         c.appendChild(ftr); ftr.layoutSizingHorizontal = "FILL";
       }
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -408,6 +414,7 @@
       const c = figma.createComponent();
       c.name = "orientation=horizontal, label=False";
       c.resize(320, 1); c.fills = [varFill("border/default")];
+      pg.appendChild(c);
       comps.push(c);
     }
     // Vertical
@@ -415,6 +422,7 @@
       const c = figma.createComponent();
       c.name = "orientation=vertical, label=False";
       c.resize(1, 80); c.fills = [varFill("border/default")];
+      pg.appendChild(c);
       comps.push(c);
     }
     // With label
@@ -431,6 +439,7 @@
       c.appendChild(l1); l1.layoutSizingHorizontal = "FILL";
       c.appendChild(txt("Label", { size: 12, fill: "foreground/subtle" }));
       c.appendChild(l2); l2.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -484,6 +493,7 @@
       c.fills = [varFill(tk.bg)]; stroke1(c, tk.bd);
       c.appendChild(txt("Tag", { size: 12, style: "SemiBold", fill: tk.fg }));
       if (removable === "True") c.appendChild(txt("×", { size: 14, fill: tk.fg }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -510,6 +520,7 @@
       c.appendChild(txt("Tile Title", { size: 15, style: "Bold", fill: "foreground/default" }));
       const desc = txt("Brief description text.", { size: 13, fill: "foreground/subtle" });
       c.appendChild(desc);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -602,6 +613,7 @@
         const err = txt("This field has an error", { size: 12, fill: "foreground/error" });
         c.appendChild(err); err.layoutSizingHorizontal = "FILL";
       }
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -633,6 +645,7 @@
       const ph = txt("Placeholder text…", { size: 14, fill: "foreground/disabled" });
       area.appendChild(ph); ph.layoutSizingHorizontal = "FILL";
       c.appendChild(area); area.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -671,6 +684,7 @@
       }
       c.appendChild(box);
       c.appendChild(txt("Checkbox label", { size: 14, fill: isDis ? "foreground/disabled" : "foreground/default" }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -711,6 +725,7 @@
       }
       c.appendChild(circle);
       c.appendChild(txt("Radio label", { size: 14, fill: isDis ? "foreground/disabled" : "foreground/default" }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -745,6 +760,7 @@
       track.appendChild(thumb);
       c.appendChild(track);
       c.appendChild(txt("Toggle label", { size: 14, fill: isDis ? "foreground/disabled" : "foreground/default" }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -781,6 +797,7 @@
       wrap.appendChild(sel); sel.layoutSizingHorizontal = "FILL";
       wrap.appendChild(chev);
       c.appendChild(wrap); wrap.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -824,6 +841,7 @@
       content.appendChild(txt("Option Title", { size: 15, style: "Bold", fill: "foreground/default" }));
       content.appendChild(txt("Option description.", { size: 13, fill: "foreground/subtle" }));
       c.appendChild(radio); c.appendChild(content);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -891,6 +909,7 @@
       wrap.appendChild(inp); inp.layoutSizingHorizontal = "FILL";
       wrap.appendChild(eye);
       c.appendChild(wrap); wrap.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -924,6 +943,7 @@
       const val = txt("MM / DD / YYYY", { size: 14, fill: "foreground/disabled" });
       inp.appendChild(val); val.layoutSizingHorizontal = "FILL";
       c.appendChild(inp); inp.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -960,6 +980,7 @@
       zone.appendChild(txt("Drop files here or click to browse", { size: 14, style: "SemiBold", fill: "foreground/default" }));
       zone.appendChild(txt("PNG, JPG, PDF up to 10MB", { size: 12, fill: "foreground/subtle" }));
       c.appendChild(zone); zone.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -994,6 +1015,7 @@
       sp(c, "cornerRadius", "radius/full");
       c.fills = [varFill(tk.bg)];
       c.appendChild(txt("9", { size: 11, style: "Bold", fill: tk.fg }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1026,6 +1048,7 @@
       spinner.arcData = { startingAngle: 0, endingAngle: Math.PI * 1.5, innerRadius: 0 };
       c.appendChild(spinner);
       c.appendChild(txt("Loading…", { size: 13, fill: "foreground/subtle" }));
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1066,6 +1089,7 @@
       sp(bar, "cornerRadius", "radius/full");
       track.appendChild(bar);
       c.appendChild(track); track.layoutSizingHorizontal = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1088,6 +1112,7 @@
       c.resize(sh.w, sh.h);
       c.fills = [varFill("background/default-alt")];
       sp(c, "cornerRadius", sh.r);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1312,6 +1337,7 @@
       sp(body, "paddingTop",   "spacings/base-6"); sp(body, "paddingBottom","spacings/base-6");
       body.appendChild(txt("Drawer body content.", { size: 14, fill: "foreground/default" }));
       c.appendChild(body); body.layoutSizingHorizontal = "FILL"; body.layoutSizingVertical = "FILL";
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1429,6 +1455,7 @@
         ftr.appendChild(txt("Confirm", { size: 14, style: "SemiBold", fill: "foreground/interactive" }));
         c.appendChild(ftr); ftr.layoutSizingHorizontal = "FILL";
       }
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1461,6 +1488,7 @@
       const msg = txt(`This is a ${type} message.`, { size: 14, style: "Medium", fill: tk.fg });
       const x   = txt("×", { size: 18, fill: tk.fg });
       c.appendChild(ico); c.appendChild(msg); msg.layoutSizingHorizontal = "FILL"; c.appendChild(x);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
@@ -1508,6 +1536,7 @@
       sp(trigger, "cornerRadius", "radius/md");
       trigger.appendChild(txt("Hover me", { size: 13, fill: "foreground/interactive" }));
       c.appendChild(trigger);
+      pg.appendChild(c);
       comps.push(c);
     }
     const set = figma.combineAsVariants(comps, pg);
