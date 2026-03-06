@@ -29,32 +29,50 @@
   ].map(f => figma.loadFontAsync(f).catch(() => {})));
 
   // ── 2. TOKEN MAP ──────────────────────────────────────────────────────────
-  const allVars = await figma.variables.getLocalVariablesAsync();
+  // Use the synchronous API (matches button-component-v2.js which is proven to work).
+  // Fall back to async if the sync method is unavailable (newer plugin runtimes).
+  const allVars = typeof figma.variables.getLocalVariables === "function"
+    ? figma.variables.getLocalVariables()
+    : await figma.variables.getLocalVariablesAsync();
   const V = {};
   for (const v of allVars) V[v.name] = v;
 
+  // Diagnostic: log every spacing token actually present so mismatches are obvious.
+  const foundSpacings = Object.keys(V).filter(k => k.startsWith("spacings/")).sort();
+  console.log("Spacing tokens found:", foundSpacings.join(", ") || "(none)");
+
   function getV(name) {
-    if (!V[name]) throw new Error(`Token not found: "${name}"`);
-    return V[name];
+    const v = V[name];
+    if (!v) {
+      console.warn(`⚠️  Token not found: "${name}" — binding skipped`);
+      return null;
+    }
+    return v;
   }
 
   // ── 3. HELPERS ────────────────────────────────────────────────────────────
   function varFill(tok) {
+    const v = getV(tok);
+    if (!v) return { type: "SOLID", color: { r: 0.85, g: 0.85, b: 0.85 } }; // grey fallback
     return {
       type: "SOLID",
       color: { r: 0, g: 0, b: 0 },
-      boundVariables: { color: figma.variables.createVariableAlias(getV(tok)) },
+      boundVariables: { color: figma.variables.createVariableAlias(v) },
     };
   }
   function varStroke(tok) {
+    const v = getV(tok);
+    if (!v) return { type: "SOLID", color: { r: 0.7, g: 0.7, b: 0.7 } }; // grey fallback
     return {
       type: "SOLID",
       color: { r: 0, g: 0, b: 0 },
-      boundVariables: { color: figma.variables.createVariableAlias(getV(tok)) },
+      boundVariables: { color: figma.variables.createVariableAlias(v) },
     };
   }
   function sp(node, field, tok) {
-    node.setBoundVariable(field, getV(tok));
+    const v = getV(tok);
+    if (!v) return; // skip silently — node keeps its default value
+    try { node.setBoundVariable(field, v); } catch (_) {}
   }
   function focusRing() {
     return [
